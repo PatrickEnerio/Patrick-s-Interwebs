@@ -1,36 +1,21 @@
-// Tab switching (Home / Projects)
-const tabs = document.querySelectorAll('.nav-left a[data-tab]');
-const sections = document.querySelectorAll('.tab-content');
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navbar a");
 
-tabs.forEach(tab => {
-  tab.addEventListener('click', e => {
-    e.preventDefault();
-    const target = tab.getAttribute('data-tab');
+window.addEventListener("scroll", () => {
+  let current = "";
 
-    // Hide all sections
-    sections.forEach(sec => sec.classList.remove('active'));
-    // Show target section
-    document.getElementById(target).classList.add('active');
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 80;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
   });
-});
 
-// Resume modal
-const resumeLink = document.getElementById('resume-link');
-const modal = document.getElementById('resume-modal');
-const closeBtn = document.querySelector('.close-btn');
-
-resumeLink.addEventListener('click', e => {
-  e.preventDefault();
-  modal.style.display = 'block';
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-// Close modal if clicking outside content
-window.addEventListener('click', e => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
 });
