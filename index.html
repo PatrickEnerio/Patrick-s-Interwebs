@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,9 +15,10 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="nav-left">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#resume">Resume</a>
+        <span class="initials">PE</span>
+        <a href="#" data-tab="home">Home</a>
+        <a href="#" data-tab="projects">Projects</a>
+        <a href="#" id="resume-link">Resume</a>
       </div>
       <div class="nav-right">
         <a
@@ -38,7 +39,7 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="section">
+    <section id="home" class="section tab-content active">
       <img
         src="Headshot.jpg"
         alt="John Patrick Enerio Headshot"
@@ -53,27 +54,43 @@
         Frameworks: React, Node.js | Tools: GitHub, VS Code, IntelliJ | OS:
         UNIX, Windows
       </p>
+
+      <!-- About Me Section -->
+      <div class="about-me">
+        <div class="about-me-content">
+          <div class="about-me-text">
+            <h2>About Me</h2>
+          </div>
+          <div class="about-me-image">
+            <!-- Image will go here -->
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section alt-bg">
+    <section id="projects" class="section tab-content">
       <h2>Projects</h2>
       <p>Coming soon...</p>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="section">
-      <h2>Resume</h2>
-      <iframe
-        src="Patrick Enerio's Resume.pdf"
-        width="100%"
-        height="600px"
-      ></iframe>
-      <br /><br />
-      <a href="Patrick Enerio's Resume.pdf" download class="resume-btn"
-        >⬇ Download Resume</a
-      >
-    </section>
+    <!-- Resume Modal -->
+    <div id="resume-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Resume</h2>
+        <!-- Embed your uploaded resume -->
+        <iframe
+          src="Patrick Enerio's Resume.pdf"
+          width="100%"
+          height="500px"
+        ></iframe>
+        <br /><br />
+        <a href="Patrick Enerio's Resume.pdf" download class="resume-btn"
+          >⬇ Download Resume</a
+        >
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
